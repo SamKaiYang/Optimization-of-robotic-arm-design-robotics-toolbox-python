@@ -1,0 +1,392 @@
+<robot
+  name="TECO6R_1"
+  kintype="ARU6">
+  <link
+    name="Base_Link">
+    <inertial>
+      <origin
+        xyz="7.75478811526881E-06 -0.000599165473154041 0.0324781805447384"
+        rpy="0 0 0" />
+      <mass
+        value="0.726332273353425" />
+      <inertia
+        ixx="0.00214589997635835"
+        ixy="-1.29431577523646E-07"
+        ixz="-2.03485682337017E-07"
+        iyy="0.0021756584575907"
+        iyz="-8.05562173030039E-06"
+        izz="0.00357322823802515" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/Base_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/Base_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="A1_Link">
+    <inertial>
+      <origin
+        xyz="-0.000387837294488029 0.000216404599264787 0.0521144858614554"
+        rpy="0 0 0" />
+      <mass
+        value="0.0933250022663036" />
+      <inertia
+        ixx="0.000162313081393788"
+        ixy="3.5049532150765E-07"
+        ixz="8.91630687704091E-07"
+        iyy="0.000162660460255291"
+        iyz="-4.77753495619374E-07"
+        izz="0.000139880997285373" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A1_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A1_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1301"
+      rpy="-7.3433E-12 -2.3706E-12 -2.9484E-11" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="A1_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="A2_Link">
+    <inertial>
+      <origin
+        xyz="-0.212847469480224 0.000498088728510149 0.124066444887415"
+        rpy="0 0 0" />
+      <mass
+        value="0.579432786411222" />
+      <inertia
+        ixx="0.00131431610371853"
+        ixy="-7.43205719488238E-05"
+        ixz="-0.000315105594661284"
+        iyy="0.0136147260451286"
+        iyz="1.9148259616983E-05"
+        izz="0.0130902524579268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A2_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A2_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 2.3706E-12 6.4623E-27" />
+    <parent
+      link="A1_Link" />
+    <child
+      link="A2_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="A3_Link">
+    <inertial>
+      <origin
+        xyz="-0.306031466342084 4.70438275923801E-05 -0.0140438274762813"
+        rpy="0 0 0" />
+      <mass
+        value="0.667529701346893" />
+      <inertia
+        ixx="0.00090381865114657"
+        ixy="2.29357621383968E-06"
+        ixz="-0.000766305038019151"
+        iyy="0.0103911321880991"
+        iyz="1.79376865555192E-06"
+        izz="0.0099967296232835" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A3_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A3_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint3"
+    type="revolute">
+    <origin
+      xyz="-0.408 0 0"
+      rpy="-9.9735E-17 -8.5558E-17 2.9406E-27" />
+    <parent
+      link="A2_Link" />
+    <child
+      link="A3_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="A4_Link">
+    <inertial>
+      <origin
+        xyz="0.000680246030960285 0.0154565305379361 0.00330850907185035"
+        rpy="0 0 0" />
+      <mass
+        value="0.512164356061208" />
+      <inertia
+        ixx="0.000800515671725547"
+        ixy="3.69578339427766E-06"
+        ixz="1.56174708060151E-05"
+        iyy="0.000454441700968071"
+        iyz="-2.09335797588263E-05"
+        izz="0.000715014463900049" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A4_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A4_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint4"
+    type="revolute">
+    <origin
+      xyz="-0.3725 0 0.10525"
+      rpy="1.3621E-16 4.0855E-16 -4.0161E-27" />
+    <parent
+      link="A3_Link" />
+    <child
+      link="A4_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="A5_Link">
+    <inertial>
+      <origin
+        xyz="-7.1401E-05 -0.017408 5.9362E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.47307" />
+      <inertia
+        ixx="0.00064793"
+        ixy="-1.5796E-06"
+        ixz="9.8319E-08"
+        iyy="0.00033181"
+        iyz="1.2873E-06"
+        izz="0.00064837" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A5_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A5_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint5"
+    type="revolute">
+    <origin
+      xyz="0 -0.09 0.0065"
+      rpy="1.5708 -4.6101E-16 2.3706E-12" />
+    <parent
+      link="A4_Link" />
+    <child
+      link="A5_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="A6_Link">
+    <inertial>
+      <origin
+        xyz="-1.26029353286761E-07 -0.000181212331748337 -0.00375000000286163"
+        rpy="0 0 0" />
+      <mass
+        value="0.0372491118430775" />
+      <inertia
+        ixx="1.51180268312862E-05"
+        ixy="9.46362824018161E-11"
+        ixz="-6.86864328438872E-20"
+        iyy="1.52540998831777E-05"
+        iyz="-1.0169932844816E-16"
+        izz="3.00229162909351E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A6_Link.brep" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TECO6R/meshes/A6_Link.brep" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint6"
+    type="revolute">
+    <origin
+      xyz="0 0.048 0"
+      rpy="-1.5708 0.00069548 -2.9484E-11" />
+    <parent
+      link="A5_Link" />
+    <child
+      link="A6_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
