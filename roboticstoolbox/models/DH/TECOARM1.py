@@ -44,8 +44,52 @@ class TECOARM1(DHRobot):
 
         deg = pi / 180
         inch = 0.0254
-
+        # TODO: add dynamics parameter data
         # robot length values (metres)
+        # % theta    d        a        alpha     offset
+        # L(1)=Link([0       0.08916    0        pi/2      0     ],'standard'); 
+        # L(1).m = 3.7000; %質心
+        # L(1).r = [0,-0.02561, 0.00193]; % 鏈接 COG wrt 鏈接坐標系 3x1
+        # L(1).I = [0.010267495893, 0.010267495893, 0.00666, 0, 0, 0];% 鏈接慣性矩陣，對稱 3x3，關於鏈接 COG。
+        # L(1).G = 100; %齒輪比
+        # L(1).Jm = 0.0; % 執行器：電機慣量（電機參考） 
+
+        # L(2)=Link([0       0        0.425     0         0     ],'standard');
+        # L(2).m = 8.3930;
+        # L(2).r = [0.2125, 0, 0.11336];
+        # L(2).I = [0.22689067591, 0.22689067591, 0.0151074, 0, 0, 0];
+        # L(2).G = 100;
+        # L(2).Jm = 0.0;
+
+        # L(3)=Link([0       0        0.39225   0         0     ],'standard');
+        # L(3).m = 2.33;
+        # L(3).r = [0.15, 0, 0.0265];
+        # L(3).I = [0.049443313556, 0.049443313556, 0.004095, 0, 0, 0];
+        # L(3).G = 100;
+        # L(3).Jm = 0.0;
+
+        # L(4)=Link([0       0.10915   0        pi/2      0     ],'standard');
+        # L(4).m = 1.2190;
+        # L(4).r = [0, -0.0018, 0.01634];
+        # L(4).I = [0.111172755531, 0.111172755531, 0.21942, 0, 0, 0];
+        # L(4).G = 100;
+        # L(4).Jm = 0.0;
+
+        # L(5)=Link([0       0.09456    0        -pi/2     0     ],'standard');
+        # L(5).m = 1.2190;
+        # L(5).r = [0, -0.0018, 0.01634];
+        # L(5).I = [0.111172755531, 0.111172755531, 0.21942, 0, 0, 0];
+        # L(5).G = 100;
+        # L(5).Jm = 0.0;
+
+        # L(6)=Link([0       0.0823     0        0         0     ],'standard');
+        # L(6).m = 0.1897;
+        # L(6).r = [0, 0, -0.001159];
+        # L(6).I = [0.0171364731454, 0.0171364731454, 0.033822, 0, 0, 0];
+        # L(6).G = 100; 
+        # L(6).Jm = 0.0;
+
+
         a = [0, 0, -0.314, -0.284, 0, 0]
         d = [0.1301, 0, 0, 0.1145, 0.090, 0.048]
 
@@ -63,6 +107,17 @@ class TECOARM1(DHRobot):
             ]
             # [-1.26029353286761E-07 -0.000181212331748337 -0.00375000000286163] # A6_Link
             # mass 0.0372491118430775
+        Jm=200e-6,    # actuator inertia
+        G=[80, 80, 80, 50, 50, 50]   # gear ratio
+        B=[0, 0, 0, 0, 0, 0], # actuator viscous friction coefficient (measured
+        # at the motor)
+        I=[[0, 0.35, 0, 0, 0, 0],[0, 0.35, 0, 0, 0, 0],[0, 0.35, 0, 0, 0, 0],[0, 0.35, 0, 0, 0, 0],[0, 0.35, 0, 0, 0, 0],[0, 0.35, 0, 0, 0, 0]]
+        # inertia tensor of link with respect to
+                # center of mass I = [L_xx, L_yy, L_zz,
+                # L_xy, L_yz, L_xz]
+        Tc=[[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]]
+        qlim=[[-160*deg, 160*deg],[-160*deg, 160*deg] ,[-160*deg, 160*deg] ,[-160*deg, 160*deg] ,[-160*deg, 160*deg] ,[-160*deg, 160*deg] ]    # minimum and maximum joint angle
+
         links = []
 
         for j in range(6):
@@ -93,9 +148,9 @@ class TECOARM1(DHRobot):
         self.addconfiguration("qs", np.array([0, 0, -pi/2, 0, 0, 0]))
 
         # nominal table top picking pose
-        self.addconfiguration("qn", np.array([0, pi/4, pi, 0, pi/4, 0]))
+        self.addconfiguration("qn", np.array([0, 0, 0, 0, 0, 0]))
 if __name__ == '__main__':    # pragma nocover
 
     teco = TECOARM1(symbolic=False)
     print(teco)
-    # print(teco.dyntable())
+    print(teco.dynamics())

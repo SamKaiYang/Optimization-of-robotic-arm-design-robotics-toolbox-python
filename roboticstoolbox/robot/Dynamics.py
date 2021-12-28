@@ -479,6 +479,8 @@ class DynamicsMixin:
             # acceleration at given velocity & with gravity acting.
             tau = self.rne(qk, qdk, np.zeros((1, self.n)), gravity=gravity)
 
+            print(M)
+            print(tau)
             # solve is faster than inv() which is faster than pinv()
             qdd[k, :] = np.linalg.solve(M, tauk - tau)
 

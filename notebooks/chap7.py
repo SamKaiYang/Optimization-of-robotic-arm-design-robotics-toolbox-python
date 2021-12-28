@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
 # In[1]:
 
 
-get_ipython().magic(u'matplotlib widget')
+# get_ipython().magic(u'matplotlib widget')
 import roboticstoolbox as rp
 import numpy as np
 
@@ -14,7 +14,7 @@ panda = rp.models.DH.Panda()
 # In[2]:
 
 
-print(panda.fkine())
+# print(panda.fkine())
 
 
 # In[3]:

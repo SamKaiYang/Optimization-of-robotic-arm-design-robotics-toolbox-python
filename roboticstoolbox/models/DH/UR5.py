@@ -93,6 +93,8 @@ class UR5(DHRobot):
         # horizontal along the x-axis
         self.addconfiguration("qr", np.r_[180, 0, 0, 0, 90, 0]*deg)
 
+         # nominal table top picking pose
+        self.addconfiguration("qn", np.array([0, 0, 0, 0, 0, 0]))
 if __name__ == '__main__':    # pragma nocover
 
     ur5 = UR5(symbolic=False)

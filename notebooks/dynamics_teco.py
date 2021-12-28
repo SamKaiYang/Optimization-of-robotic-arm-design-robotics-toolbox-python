@@ -24,6 +24,15 @@ np.set_printoptions(linewidth=100, formatter={'float': lambda x: f"{x:8.4g}" if 
 # teco = rtb.models.DH.Puma560()
 teco = rtb.models.DH.TECOARM1()
 
+
+teco.teach(block=True)
+
+
+# In[5]:
+
+
+teco.plot(block=False)
+
 # and show its configuration in a typical desktop working pose
 
 # In[3]:
@@ -82,7 +91,7 @@ for i in range(N):
         M11[i,j] = M[0,0]
         M12[i,j] = M[0,1]
 
-teco.payload(20, [0, 0, 0]) # set payload 
+teco.payload(5, [0, 0, 0]) # set payload 
 # The inertia "seen" by joint 1 varies as a function of $q_2$ and $q_3$ as shown below
 
 # In[7]:
@@ -155,7 +164,7 @@ teco.rne(teco.qn, np.zeros((6,)), np.zeros((6,)))
 
 
 teconf = teco.nofriction()
-tg = teconf.fdyn(5, teco.qn, dt=0.05)
+tg = teconf.fdyn(4, teco.qn, dt=0.05)
 
 
 # The first line needs some explanation.  The Toolbox can model two types of joint friction:
@@ -169,17 +178,17 @@ tg = teconf.fdyn(5, teco.qn, dt=0.05)
 # In[13]:
 
 
-tg.q
-print(tg.q)
+# tg.q
+# print(tg.q)
 # which we can plot using a Toolbox convenience function
 
 # In[14]:
 
-rtb.tools.trajectory.qplot(tg.t, tg.q)
+# rtb.tools.trajectory.qplot(tg.t, tg.q)
 
 # or we can animate it, showing the robot collapsing under gravity
 
 # In[ ]:
-teco.plot(tg.q)
+# teco.plot(tg.q)
 #
 # The motion of the robot quickly dies out and it hangs downward, this loss of energy is due to the viscous friction in the robot's joints.
