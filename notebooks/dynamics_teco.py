@@ -20,7 +20,7 @@ np.set_printoptions(linewidth=100, formatter={'float': lambda x: f"{x:8.4g}" if 
 
 # In[2]:
 
-
+robot = rtb.models.URDF.Panda()  # load URDF version of the Panda
 # teco = rtb.models.DH.Puma560()
 teco = rtb.models.DH.TECOARM1()
 

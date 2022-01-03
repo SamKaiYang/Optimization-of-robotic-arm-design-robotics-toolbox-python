@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 np.set_printoptions(linewidth=100, formatter={'float': lambda x: f"{x:8.4g}" if abs(x) > 1e-10 else f"{0:8.4g}"})
 
-get_ipython().magic(u'matplotlib notebook')
+# get_ipython().magic(u'matplotlib notebook')
 
 
 # The Toolbox supports models defined using a number of different conventions.  We will load a very classical model, a Puma560 robot defined in terms of standard Denavit-Hartenberg parameters
@@ -22,7 +22,9 @@ get_ipython().magic(u'matplotlib notebook')
 
 p560 = rtb.models.DH.Puma560()
 
-
+# robot = rtb.models.URDF.Panda()
+# T = robot.fkine(robot.qz, end='panda_hand')
+# robot.plot(robot.qz, backend = "swift")
 # Now we can display the simple Denavit-Hartenberg parameter model
 
 # In[3]:
@@ -51,7 +53,7 @@ p560.qr
 # In[5]:
 
 
-p560.plot(p560.qn);
+p560.plot(p560.qn )
 
 
 # where `qn` is one of the named configurations shown above, and has the robot positioned to work above a table top.  You can use the mouse to rotate the plot and view the robot from different directions.  The grey line is the _shadow_ which is a projection of the robot onto the xy-plane.
@@ -157,7 +159,7 @@ rtb.tools.trajectory.qplot(qt.q, block=False)
 # In[16]:
 
 
-p560.plot(qt.q, dt=0.1);
+p560.plot(qt.q, dt=0.1 )
 
 
 # _Note: animation not working in Jupyter..._

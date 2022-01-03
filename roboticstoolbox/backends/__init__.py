@@ -1,5 +1,5 @@
 # from roboticstoolbox.backends.PyPlot import *   # noqa
-# from roboticstoolbox.backends.Swift import *   # noqa
+# from roboticstoolbox.backends.swift import *   # noqa
 # from roboticstoolbox.backends.ROS import *   # noqa
 # print("about to import VP")
 # try:
