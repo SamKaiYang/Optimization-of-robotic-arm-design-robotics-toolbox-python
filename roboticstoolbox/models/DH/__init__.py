@@ -22,7 +22,6 @@ from roboticstoolbox.models.DH.TwoLink import TwoLink
 from roboticstoolbox.models.DH.Hyper3d import Hyper3d
 from roboticstoolbox.models.DH.P8 import P8
 from roboticstoolbox.models.DH.TECOARM1 import TECOARM1
-from roboticstoolbox.models.DH.TECOARM2 import TECOARM2
 
 __all__ = [
     'Panda',
@@ -43,7 +42,6 @@ __all__ = [
     'UR5',
     'UR10',
     'TECOARM1',
-    'TECOARM2',
     'Sawyer',
     'Mico',
     'Jaco',
