@@ -57,7 +57,7 @@ class TECOARM1(DHRobot):
         # mass = [3.7000, 8.3930, 2.33, 1.2190, 1.2190, 0.1897]
         mass = [0.706627496414257, 1.81432701922486, 0.44267362700812, 0.240053004221894, 0.22616916171284, 0.3927]
         
-        
+        G= [-80,-80,-80,-50,-50,-50]   # gear ratio
         # <xacro:property name="shoulder_cog" value="0.0 0.00193 -0.02561" />
         # <xacro:property name="upper_arm_cog" value="0.0 -0.024201 0.2125" />
         # <xacro:property name="forearm_cog" value="0.0 0.0265 0.11993" />
@@ -96,7 +96,7 @@ class TECOARM1(DHRobot):
                 alpha=alpha[j],
                 m=mass[j],
                 r=center_of_mass[j],
-                G=1
+                G=G[j]
             )
             links.append(link)
     
